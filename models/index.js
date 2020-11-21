@@ -30,6 +30,10 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
+users.hasMany(agenda,{
+  foreignKey: 'id_user'
+});
+agenda.belongsTo(user);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

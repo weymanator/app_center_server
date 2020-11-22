@@ -12,7 +12,7 @@ const controllers = {
       .then((data) => {
         res.json(data);
       })
-      .catch((err) => res.json({ msg: "No hay eventos", err: true }));
+      .catch((err) => res.json({msg: err.message}));
   },
   createEvento(req, res) {
     const {id} = req.user;

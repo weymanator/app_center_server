@@ -15,14 +15,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       fecha: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY                    
       },
       status: {
         type: Sequelize.BOOLEAN
       },
       id_user: {
-        type: Sequelize.INTEGER
-      },
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+         model: "Users",
+         key: "id"
+        }
+       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

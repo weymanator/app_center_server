@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   agenda.init({
     evento: DataTypes.STRING,
     detalles: DataTypes.STRING,
-    fecha: DataTypes.DATE,
+    fecha: DataTypes.DATEONLY,
     status: DataTypes.BOOLEAN,
     id_user: DataTypes.INTEGER
   }, {

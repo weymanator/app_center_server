@@ -16,10 +16,10 @@ Add a new folder at the root directory of the project called `config` with a fil
 
 ```json
 {
-  "development": {
-    "username": "root",
-    "password": "olopez13",
-    "database": "todo",
+   "development": {
+    "username": "your_local_user_name_for_mysql",
+    "password": "your_local_password_for_mysql",
+    "database": "the_name_of_the_target_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

@@ -26,6 +26,40 @@ const controllers = {
       .then((data) => res.json(data))
       .catch((err) => res.json({ errmsg: err.message }));
   },
+  getOneEvent(req, res) {
+    const { id } = req.agenda;
+    models.agenda
+      .finOne({ where: { id: id } })
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => res.json({msg: err.message}));
+  },
+  updateEvent(req, res) {
+    const { id } = req.body.agenda;
+    const { evento, detalles, date } = req.body;
+    const { day, month, year } = date;
+    models.agenda
+    .update({
+      evento : evento,
+      detalles : detalles,
+      date : date
+    },
+      { where: { id: id } })
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => res.json({msg: err.message}));
+  },
+  deleteEvent(req,res){
+    const { id } = req.agenda;
+    models.agenda
+    .destroy({where: { id: id } })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => res.json({msg: err.message}));
+  },
 };
 
 module.exports = controllers;

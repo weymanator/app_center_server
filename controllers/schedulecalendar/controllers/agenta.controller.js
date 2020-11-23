@@ -36,7 +36,7 @@ const controllers = {
       .catch((err) => res.json({msg: err.message}));
   },
   updateEvent(req, res) {
-    const { id } = req.body.agenda;
+    const { id } = req.agenda;
     const { evento, detalles, date } = req.body;
     const { day, month, year } = date;
     models.agenda

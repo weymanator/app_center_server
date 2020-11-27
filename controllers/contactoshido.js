@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/getcontactoshido', function(req, res){
     models.contactoShido
-        .findAll({where: {user_id: req.user.id}})
+        .findAll({where: {contactowner: req.user.id}})
         .then(data => res.json(data))
         .catch(err => res.json({errmsg: err.message}))
 });

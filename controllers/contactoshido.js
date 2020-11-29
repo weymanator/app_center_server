@@ -35,4 +35,14 @@ router.post('/newcontactoshido', function(req, res){
 
 });
 
+router.post('/delcontactoshido', function(req, res){
+    const reqcontact = req.body;
+
+    models.contactoShido
+        .destroy({where: {id: reqcontact.id}});
+    res.json({success: "Eliminado satisfactoriamente"})
+    return;
+
+});
+
 module.exports = router;

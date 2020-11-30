@@ -39,10 +39,27 @@ router.post('/delcontactoshido', function(req, res){
     const reqcontact = req.body;
 
     models.contactoShido
-        .destroy({where: {id: reqcontact.id}});
-    res.json({success: "Eliminado satisfactoriamente"})
+        .destroy({where: {id: reqcontact.id}})
+        .then(res.json({success: "Eliminado satisfactoriamente"}))
+        .catch((err) => res.json({errmsg: err.message}));
     return;
-
 });
+
+router.post('/updcontactoshido', function(req, res){
+    const reqcontact = req.body;
+
+    models.contactoShido
+        .update({
+            nombre: reqcontact.nombre,
+            telefono: reqcontact.telefono,
+            email: reqcontact.email
+        },
+        {
+            where: {id: reqcontact.id}
+        })
+        .then(res.json({success: "Actualizado satisfactoriamente"}))
+        .catch((err) => res.json({errmsg: err.message}));
+    return;
+})
 
 module.exports = router;

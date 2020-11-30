@@ -52,7 +52,7 @@ const controllers = {
       .catch((err) => res.json({msg: err.message}));
   },
   deleteEvent(req,res){
-    const { id } = req.agenda;
+    const { id } = req.body;
     models.agenda
     .destroy({where: { id: id } })
     .then((data) => {
